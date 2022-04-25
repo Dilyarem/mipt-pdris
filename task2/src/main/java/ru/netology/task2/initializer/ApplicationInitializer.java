@@ -8,8 +8,8 @@ import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletContext;
 
 public class ApplicationInitializer implements WebApplicationInitializer {
-    final private String TMP_FOLDER = "/tmp";
-    final private int MAX_UPLOAD_SIZE = 5 * 1024 * 1024;
+    private static final String tmpFolder = "/tmp";
+    private static final int maxUploadSize = 5 * 1024 * 1024;
 
     @Override
     public void onStartup(ServletContext servletContext) {
@@ -21,8 +21,8 @@ public class ApplicationInitializer implements WebApplicationInitializer {
         final var registration = servletContext.addServlet("app", servlet);
         registration.setLoadOnStartup(1);
 
-        MultipartConfigElement multipartConfigElement = new MultipartConfigElement(TMP_FOLDER,
-                MAX_UPLOAD_SIZE, MAX_UPLOAD_SIZE * 2, MAX_UPLOAD_SIZE / 2);
+        MultipartConfigElement multipartConfigElement = new MultipartConfigElement(tmpFolder,
+                maxUploadSize, maxUploadSize * 2, maxUploadSize / 2);
 
         registration.setMultipartConfig(multipartConfigElement);
 

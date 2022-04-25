@@ -12,7 +12,7 @@ public class FileService {
 
     public FileService(FileRepository repository) { this.repository = repository; }
 
-    public void saveFile(String file_name, MultipartFile file) { repository.saveFile(file_name, file); }
+    public void saveFile(String fileName, MultipartFile file) { repository.saveFile(fileName, file); }
 
-    public byte[] getFile(String file_name) { return repository.getFile(file_name); }
+    public byte[] getFile(String fileName) { return repository.getFile(fileName); }
 }

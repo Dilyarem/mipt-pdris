@@ -9,17 +9,17 @@ import java.nio.file.Path;
 
 @Repository
 public class FileRepository {
-    public void saveFile(String file_name, MultipartFile file) {
+    public void saveFile(String fileName, MultipartFile file) {
         try {
-            Files.write(Path.of(file_name), file.getBytes());
+            Files.write(Path.of(fileName), file.getBytes());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public byte[] getFile(String file_name) {
+    public byte[] getFile(String fileName) {
         try {
-            return Files.readAllBytes(Path.of(file_name));
+            return Files.readAllBytes(Path.of(fileName));
         } catch (IOException e) {
             e.printStackTrace();
             return new byte[0];

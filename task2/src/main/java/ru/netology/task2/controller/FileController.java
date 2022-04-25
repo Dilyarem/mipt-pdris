@@ -13,12 +13,12 @@ public class FileController {
     public FileController(FileService service) { this.service = service; }
 
     @PostMapping(value="/file", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public void saveFile(@RequestParam("filename") String filename, @RequestParam("content") MultipartFile file) {
-        service.saveFile(filename, file);
+    public void saveFile(@RequestParam("filename") String fileName, @RequestParam("content") MultipartFile file) {
+        service.saveFile(fileName, file);
     }
 
     @GetMapping(value="/getFile", produces = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public byte[] getFile(@RequestParam("filename") String filename) {
-        return service.getFile(filename);
+    public byte[] getFile(@RequestParam("filename") String fileName) {
+        return service.getFile(fileName);
     }
 }
